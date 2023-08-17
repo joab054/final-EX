@@ -1,0 +1,49 @@
+name: first_action
+on:
+  push:
+    branches:
+      - master
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Print hello message
+      run: echo "Hello:)"
+      
+    - name: Print Ubuntu version
+      run: lsb_release -a
+
+    - name: Print SHA of commit
+      run: echo $GITHUB_SHA
+
+  job2:      
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Print all files in repo
+      run: ls
+      
+    - name: Run test.sh
+      run: bash test.sh
+        
+  job3:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Print First Name
+      run: echo $FIRST_NAME
+      env:
+        FIRST_NAME: "YourFirstName"  # This will be the value of the FIRST_NAME env variable
+
+    - name: Print Last Name
+      run: |
+        LAST_NAME="YourLastName"
+        echo $LAST_NAME
+
+
+    - name: Print phone number
+      run: echo ${{ secrets.PHONE_NUMBER }}  # Assuming you have set a secret named PHONE_NUMBER in your GitHub repository settings
