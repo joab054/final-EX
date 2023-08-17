@@ -37,13 +37,13 @@ jobs:
     - name: Print First Name
       run: echo $FIRST_NAME
       env:
-        FIRST_NAME: "YourFirstName"  # This will be the value of the FIRST_NAME env variable
+        FIRST_NAME: "Joab"  
 
     - name: Print Last Name
       run: |
-        LAST_NAME="YourLastName"
+        LAST_NAME="Canaan"
         echo $LAST_NAME
 
 
     - name: Print phone number
-      run: echo ${{ secrets.PHONE_NUMBER }}  # Assuming you have set a secret named PHONE_NUMBER in your GitHub repository settings
+      run: echo ${{ secrets.PHONE_NUMBER }} 
